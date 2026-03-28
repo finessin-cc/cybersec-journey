@@ -1,6 +1,6 @@
 # Networking Basics
 
-#28.03.2026
+# 28.03.2026
 
 ## Creature №1 — Anatomy of the Internet
 
@@ -51,11 +51,11 @@ You say:
 
 When you send a message to a friend — it passes through 7 layers. Like a food chain: each level consumes the previous one and passes it on.
 
-##All People Seem To Need Data Processing
+## All People Seem To Need Data Processing
 
 Application, Presentation, Session, Transport, Network, Data Link, Physical
 
-#Application — Application Layer
+# Application — Application Layer
 
 HTTP, DNS, FTP, SSH
 The alpha predator — what the user actually sees
@@ -64,7 +64,7 @@ This is what you interact with directly — browser, email, messenger. Protocols
 
 Attacks: XSS, SQL injection, phishing
 
-#Presentation — Presentation Layer
+# Presentation — Presentation Layer
 
 Encryption, compression, encoding
 The translator — transforms data formats
@@ -73,7 +73,7 @@ Converts data into a format the receiver can understand. This is where SSL/TLS e
 
 Attacks: SSL stripping, downgrade attacks
 
-#Session — Session Layer
+# Session — Session Layer
 
 Session and connection management
 The memory of the ecosystem — remembers who is talking to whom
@@ -82,7 +82,7 @@ Responsible for establishing, maintaining, and terminating sessions between appl
 
 Attacks: session hijacking, cookie theft
 
-#Transport — Transport Layer
+# Transport — Transport Layer
 
 TCP and UDP — ports 0–65535
 Logistics — how to deliver and through which door
@@ -91,7 +91,7 @@ Determines HOW data is delivered. TCP — reliable with acknowledgment. UDP — 
 
 Attacks: port scanning, SYN flood, TCP hijacking
 
-#Network — Network Layer
+# Network — Network Layer
 
 IP addresses, routing
 The navigator — charts the path through the jungle
@@ -100,7 +100,7 @@ Responsible for addressing and routing — how a packet finds its way from your 
 
 Attacks: IP spoofing, MITM, routing attacks
 
-#Data Link — Data Link Layer
+# Data Link — Data Link Layer
 
 MAC addresses, Ethernet, Wi-Fi
 A local resident — knows all neighbors on the network
@@ -109,7 +109,7 @@ Handles data transfer between devices within the same local network. Each device
 
 Attacks: ARP spoofing, MAC flooding
 
-#Physical — Physical Layer
+# Physical — Physical Layer
 
 Cables, radio waves, bits
 The ground — the foundation everything stands on
