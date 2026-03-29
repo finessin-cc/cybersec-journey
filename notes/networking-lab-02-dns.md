@@ -53,3 +53,41 @@ tryhackme.com   nameserver = kip.ns.cloudflare.com
 MX (Mail Exchange) — identifies the mail servers responsible for receiving email on behalf of the domain.
 NS (Name Server) — specifies the authoritative name servers for the domain.
 TXT (Text Records) — contains arbitrary text data; often used for verification, security (e.g., SPF, DKIM), or sometimes hidden interesting information
+
+What I actually found — OSINT in action:
+
+TXT records revealed the entire tech stack of TryHackMe:
+
+1. Anthropic (Claude AI)
+   anthropic-domain-verification-azydkj=zpI52q9Mi6RXuR8EflRqMe6q1
+   → TryHackMe uses Claude. Found in DNS. No hacking needed.
+
+2. Google
+   include:_spf.google.com
+   → Google handles their email infrastructure.
+
+3. Chargebee
+   include:email.chargebee.com
+   → This is their payment system. The one that charges
+     your Premium subscription.
+
+4. HubSpot
+   include:7168674.spf05.hubspotemail.net
+   → Marketing emails and user analytics.
+
+This technique is called tech stack fingerprinting.
+From one SPF record, we mapped what services a company
+runs — without touching their servers.
+This is real OSINT. Public data, zero noise.
+
+## What Surprised Me
+
+I expected DNS to just return IP addresses.
+Instead it revealed the entire infrastructure of a company.
+One TXT record = their payment provider, email system,
+AI tools, and marketing platform.
+
+The most unexpected find: TryHackMe uses Anthropic (Claude).
+I discovered this not from their website — from their DNS.
+That's the point. Companies can't hide what's in their DNS.
+It's public by design. And that's exactly why attackers look here first.
