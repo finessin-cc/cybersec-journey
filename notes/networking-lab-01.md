@@ -54,13 +54,42 @@ Addresses:  2606:4700:10::6814:1d42
 
 ## Findings
 
-Packet travels through 10 hops to reach the server. Most hops are inside ISP infrastructure. Interesting: some hops returned * * * — those routers are configured to drop ICMP packets (stealth mode)
+Target tryhackme.com resolves to two address types:
+IPv4: 172.66.164.239 and IPv6: 2606:4700:10::6814:1d42
+Multiple IPs returned — the site uses Cloudflare CDN.
+
+Proof: nslookup -type=NS tryhackme.com returned:
+nameserver = uma.ns.cloudflare.com
+nameserver = kip.ns.cloudflare.com
+
+This means the real server IP is hidden behind Cloudflare.
+What we see is Cloudflare's IP, not the actual server.
+This is important — you cannot attack the real server directly
+without first finding its true IP address.
+
+Packet travelled through 10 hops to reach the target.
+Hops 4 and 7 returned * * * — these routers are configured
+to drop ICMP packets and are invisible to traceroute.
+Average latency: ~20ms — server is geographically close.
 
 ## ?
 
-How does Cloudflare decide which IP to return for a DNS query? Is it based on my location? I got two different IPs — are they in different data centers?
+I didn't expect a domain to hide behind a CDN like this.
+I thought nslookup would give me the real server IP,
+but it actually gives Cloudflare's IP instead.
+The real server is completely invisible from the outside.
+This changes everything — reconnaissance is not just
+"find the IP", it's "find the real IP behind the shield".
 
+Also surprised by the * * * hops in traceroute.
+I thought it meant the connection failed,
+but those routers are deliberately silent.
+Someone configured them to be invisible. That's intentional stealth.
 
+## Tags
+
+networking, reconnaissance, dns, ping, traceroute, 
+whois, osint, cloudflare, ipv4, ipv6, windows
 
 
 
