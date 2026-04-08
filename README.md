@@ -1,7 +1,7 @@
 # cybersec-journey
 My path into cybersecurity - notes, writeups, tools
 
-**Goal:** improve my cybersecurity skills
+**Goal:** improve my cybersecurity skills + start bug bounty
 
 ## What I'm learning
 - Network fundamentals (TCP/IP, DNS, HTTP)
